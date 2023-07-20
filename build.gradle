@@ -1,0 +1,28 @@
+plugins {
+    id 'java'
+    id 'org.flywaydb.flyway' version '9.20.1'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+    implementation group: 'org.postgresql', name: 'postgresql', version: '42.6.0'
+
+}
+
+flyway {
+    url = 'jdbc:postgresql://serverok.vkozik.in.ua:5432/sofy_db'
+    user = 'sofy'
+    password = 'Vfhuj#2012'
+}
+
+test {
+    useJUnitPlatform()
+}
